@@ -36,8 +36,9 @@ packages:
 |-- packages
 |   |-- apps       // 项目仓库文件夹 包含多个vue项目
 |   |-- components // 公共组件库
-|   |-- layout     // 公共布局库 可包含多套布局方案
-|   |-- styles     // 公共样式库
+|   |   |-- basic      // 基础组件
+|   |   |-- layout     // 布局组件
+|   |-- hooks      // 公共hooks库
 |   `-- utils      // 公共工具函数库
 `-- pnpm-workspace.yaml
 ```
@@ -66,7 +67,7 @@ pnpm init -y
 
 ```sh
 pnpm add vue vue-router pinia axios element-plus @element-plus/icons-vue @vueuse/core  -w
-pnpm add typescript vite @vitejs/plugin-vue @vitejs/plugin-vue-jsx vue-tsc -wD
+pnpm add typescript vite @vitejs/plugin-vue @vitejs/plugin-vue-jsx vue-tsc less -wD
 ```
 
 ### 创建 vue3 项目 demo
@@ -95,6 +96,8 @@ pnpm create vite demo -- --template vue-ts
 ```
 
 在 demo 目录下执行`pnpm run dev`,即可看到 vue3 项目正常运行
+
+### 项目中引入 vue-router,pinia
 
 ### 按需导入 elementPlus
 
