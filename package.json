@@ -1,0 +1,32 @@
+{
+  "name": "monorepovueapps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "demo:dev": "pnpm --filter=@vueapps/demo run dev",
+    "demo:build": "pnpm --filter=@vueapps/demo run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.9",
+    "@vueuse/core": "^9.3.0",
+    "axios": "^0.27.2",
+    "element-plus": "^2.2.17",
+    "pinia": "^2.0.22",
+    "vue": "^3.2.40",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue-jsx": "^2.0.1",
+    "typescript": "^4.8.4",
+    "unplugin-auto-import": "^0.11.2",
+    "unplugin-vue-components": "^0.22.7",
+    "vite": "^3.1.4",
+    "vue-global-api": "^0.4.1",
+    "vue-tsc": "^0.40.4"
+  }
+}
