@@ -34,18 +34,18 @@ packages:
 
 ```
 |-- packages
-|   |-- apps       // 项目仓库文件夹 包含多个vue项目
-|   |-- components // 公共组件库
+|   |-- apps           // 项目仓库文件夹 包含多个vue项目
+|   |-- components     // 公共组件库
 |   |   |-- basic      // 基础组件
 |   |   |-- layout     // 布局组件
-|   |-- hooks      // 公共hooks库
-|   `-- utils      // 公共工具函数库
+|   |-- hooks          // 公共hooks库
+|   `-- utils          // 公共工具函数库
 `-- pnpm-workspace.yaml
 ```
 
 ### 安装依赖
 
-#### 安装 pnpm
+#### 全局安装 pnpm
 
 ```sh
 npm i pnpm -g

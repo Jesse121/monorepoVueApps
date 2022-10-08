@@ -40,12 +40,12 @@ export const constantRoutes: RouteRecordRaw[] = [
       hidden: true,
     },
   },
-  // {
-  //   path: "/",
-  //   component: Layout,
-  //   redirect: "/home/index",
-  //   meta: { hidden: true },
-  // },
+  {
+    path: "/",
+    component: Layout,
+    redirect: "/home/index",
+    meta: { hidden: true },
+  },
   {
     path: "/:pathMatch(.*)*",
     redirect: "/404",
