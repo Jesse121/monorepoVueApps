@@ -12,7 +12,7 @@
   </el-breadcrumb>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="breadcrumb">
 // import { compile } from "path-to-regexp";
 import { ref, watch } from "vue";
 import { useRouter, RouteLocationMatched } from "vue-router";
