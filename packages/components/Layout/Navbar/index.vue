@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="navbar">
 import Breadcrumb from "../Breadcrumb/index.vue";
 import Hamburger from "../Hamburger/index.vue";
 import { getActivePinia, storeToRefs } from "pinia";

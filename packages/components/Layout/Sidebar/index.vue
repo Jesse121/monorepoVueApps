@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="sidebar">
 import { computed, inject } from "vue";
 import { useRouter } from "vue-router";
 // import router, { asyncRoutes } from "@/router";

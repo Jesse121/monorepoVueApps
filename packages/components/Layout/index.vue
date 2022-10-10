@@ -18,8 +18,8 @@ import { computed, onMounted, reactive, ref, ToRefs } from "vue";
 
 // import AppMain from "./AppMain";
 // import Breadcrumb from "./Breadcrumb/index.vue";
-import Navbar from "./Navbar/navbar.vue";
-import Sidebar from "./Sidebar/sidebar.vue";
+import Navbar from "./Navbar/index.vue";
+import Sidebar from "./Sidebar/index.vue";
 // import TagsView from "./TagsView/index.vue";
 const activePinia = reactive(getActivePinia() as any);
 const appStore = activePinia._s.get("app");
