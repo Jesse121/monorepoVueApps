@@ -43,7 +43,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     component: Layout,
     // redirect: "/home/index",
     meta: {
-      title: "home",
+      title: "首页",
       hidden: true,
     },
   },
