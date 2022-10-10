@@ -174,6 +174,7 @@ module.exports = {
 
 ### 添加公共布局组件
 
+pnpm add @vueapps/utils --filter @vueapps/demo
 参考文章：
 
 1. [为什么推荐使用 pnpm](https://zhuanlan.zhihu.com/p/419399115)

@@ -1,10 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
-// import Layout from "@/layout/index.vue";
-
 // import home from "./modules/home";
 
-import { errorPage } from "@vueapps/components";
+import { layout, errorPage } from "@vueapps/components";
 /**
   ConstantRoutes
   a base page that does not have permission requirements
@@ -42,9 +40,12 @@ export const constantRoutes: RouteRecordRaw[] = [
   },
   {
     path: "/",
-    component: Layout,
-    redirect: "/home/index",
-    meta: { hidden: true },
+    component: layout,
+    // redirect: "/home/index",
+    meta: {
+      title: "home",
+      hidden: true,
+    },
   },
   {
     path: "/:pathMatch(.*)*",

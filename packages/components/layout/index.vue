@@ -1,15 +1,15 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <sidebar class="sidebar-container" />
+    <sidebar class="sidebar-container" :is-collapse="!sidebarRef.opened" />
     <div class="main-container">
       <div class="fixed-header">
-        <navbar />
-        <tags-view />
+        <!-- <navbar /> -->
       </div>
-      <app-main />
+      <!-- <app-main /> -->
     </div>
   </div>
 </template>
+<!-- <tags-view /> -->
 
 <script setup lang="ts">
 import { computed } from "vue";
@@ -17,28 +17,27 @@ import { computed } from "vue";
 
 // import { IState } from "@/store";
 
-import AppMain from "./AppMain";
-import Navbar from "./Navbar/index.vue";
+// import AppMain from "./AppMain";
+// import Navbar from "./Navbar/index.vue";
 import Sidebar from "./Sidebar/index.vue";
-import TagsView from "./TagsView/index.vue";
+// import TagsView from "./TagsView/index.vue";
 
 // const store = useStore<IState>();
-
-const sidebarRef = computed(() => {
-  opened: true;
-  withoutAnimation: true;
+const appStore = inject<{
+  sidebar: {
+    opened: boolean;
+    withoutAnimation: boolean;
+  };
+}>("appStore", { sidebar: { opened: false, withoutAnimation: false } });
+const sidebarRef = computed(() => appStore.sidebar);
+const classObj = computed(() => {
+  hideSidebar: !sidebarRef.value.opened;
+  openSidebar: sidebarRef.value.opened;
+  withoutAnimation: sidebarRef.value.withoutAnimation;
 });
-const classObj = computed(() => ({
-  hideSidebar: !sidebarRef.value.opened,
-  openSidebar: sidebarRef.value.opened,
-  withoutAnimation: sidebarRef.value.withoutAnimation,
-}));
 </script>
 
 <style lang="less" scoped>
-// @import "@/styles/mixin";
-// @import "@/styles/variables";
-
 .app-wrapper {
   .clearfix();
   position: relative;

@@ -37,18 +37,27 @@ const getConfigRoutes = inject("getConfigRoutes");
 const showLogo = true;
 // console.log(variables);
 
-const routes = computed(() => {
-  let routes = [];
-  if (store.getters.routes) {
-    routes = getConfigRoutes(asyncRoutes, store.getters.routes, false);
-  } else {
-    // TODO 解决热跟新路由
-    routes = router.options.routes;
-  }
-  return routes;
-});
+// const routes = computed(() => {
+//   let routes = [];
+//   if (store.getters.routes) {
+//     routes = getConfigRoutes(asyncRoutes, store.getters.routes, false);
+//   } else {
+//     // TODO 解决热跟新路由
+//     routes = router.options.routes;
+//   }
+//   return routes;
+// });
 
-const isCollapse = computed(() => !sidebar.opened);
+const routes = computed(() => router.options.routes);
+
+const props = withDefaults(
+  defineProps<{
+    isCollapse: boolean;
+  }>(),
+  {
+    isCollapse: true,
+  }
+);
 
 const activeMenu = computed(() => {
   const route = router.currentRoute.value;
