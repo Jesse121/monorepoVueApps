@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 // import home from "./modules/home";
 
-import { layout, errorPage } from "@vueapps/components";
+import { Layout, ErrorPage } from "@vueapps/components";
 /**
   ConstantRoutes
   a base page that does not have permission requirements
@@ -32,7 +32,7 @@ export const constantRoutes: RouteRecordRaw[] = [
   // },
   {
     path: "/404",
-    component: errorPage,
+    component: ErrorPage,
     meta: {
       title: "404",
       hidden: true,
@@ -40,7 +40,7 @@ export const constantRoutes: RouteRecordRaw[] = [
   },
   {
     path: "/",
-    component: layout,
+    component: Layout,
     // redirect: "/home/index",
     meta: {
       title: "home",

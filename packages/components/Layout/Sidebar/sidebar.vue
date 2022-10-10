@@ -1,14 +1,14 @@
 <template>
-  <div :class="{ 'has-logo': showLogo }">
-    <logo v-if="showLogo" :collapse="isCollapse" />
+  <div :class="{ 'has-logo': true }">
+    <Logo :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-        :background-color="variables.sidebarBg"
-        :text-color="variables.menuText"
+        :background-color="styleVariables.sidebarBg"
+        :text-color="styleVariables.menuText"
         unique-opened
-        :active-text-color="variables.menuActiveText"
+        :active-text-color="styleVariables.menuActiveText"
         :collapse-transition="false"
         mode="vertical"
       >
@@ -25,17 +25,18 @@
 
 <script setup lang="ts">
 import { computed, inject } from "vue";
-
-import router, { asyncRoutes } from "@/router";
-import variables from "@/styles/variables.less";
+import { useRouter } from "vue-router";
+// import router, { asyncRoutes } from "@/router";
 
 import Logo from "./Logo.vue";
 import SidebarItem from "./SidebarItem.vue";
 
-const getConfigRoutes = inject("getConfigRoutes");
-
-const showLogo = true;
-// console.log(variables);
+const router = useRouter();
+const styleVariables = inject("styleVariables", {
+  menuText: "",
+  menuActiveText: "",
+  sidebarBg: "",
+});
 
 // const routes = computed(() => {
 //   let routes = [];
@@ -52,10 +53,13 @@ const routes = computed(() => router.options.routes);
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * 是否折叠
+     */
     isCollapse: boolean;
   }>(),
   {
-    isCollapse: true,
+    isCollapse: false,
   }
 );
 

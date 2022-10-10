@@ -1,0 +1,20 @@
+.app-main {
+	position: relative;
+	// display: flex;
+	height: calc(100% - 32px);
+	margin: 32px 24px;
+}
+
+.fixed-header + .app-main {
+	// overflow: hidden;
+	height: calc(100% - 113px - 32px);
+	margin-top: 113px;
+	border-radius: 4px;
+}
+
+// fix css style bug in open el-dialog
+.el-popup-parent--hidden {
+	.fixed-header {
+		padding-right: 15px;
+	}
+}
