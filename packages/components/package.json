@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vueapps/store": "workspace:^1.0.0",
     "@vueapps/utils": "workspace:^1.0.0"
   }
 }

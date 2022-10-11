@@ -50,70 +50,68 @@ export function getConfigRoutes(
   return accessRoutes;
 }
 
-const useUserStore = defineStore("user", {
-  state: () => ({
-    token: getToken(TokenKey) || "",
-  }),
-  getters: {},
-  actions: {
-    /**
-     *
-     * @param userInfo
-     * @returns
-     */
-    login(userInfo: { username: string; password: string }) {
-      const username = userInfo.username.trim();
-      const password = userInfo.password;
-      return new Promise<void>((resolve, reject) => {
-        login({
-          username,
-          password,
+const useUserStore = defineStore("user", () => {
+  const token = computed(() => getToken(TokenKey) || "");
+
+  /**
+   *
+   * @param userInfo
+   * @returns
+   */
+  function login(userInfo: { username: string; password: string }) {
+    const username = userInfo.username.trim();
+    const password = userInfo.password;
+    return new Promise<void>((resolve, reject) => {
+      login({
+        username,
+        password,
+      })
+        .then((res: any) => {
+          // console.log(res);
+          const { token } = res;
+          saveName(NAME, username);
+          saveToken(TokenKey, token);
+          resolve();
         })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+  function generateRoutes() {
+    return new Promise<void>((resolve, reject) => {
+      if (state.routes) return resolve();
+
+      const routes = getRoutes();
+      if (routes) {
+        // 读取缓存获取路由
+        const accessRoutes = getConfigRoutes(asyncRoutes, routes, false);
+        accessRoutes.forEach((element) => router.addRoute(element));
+
+        resolve();
+      } else {
+        // 读取接口获取路由
+        getMenuNav()
           .then((res: any) => {
             // console.log(res);
-            const { token } = res;
-            saveName(NAME, username);
-            saveToken(TokenKey, token);
+            const accessRoutes = getConfigRoutes(
+              asyncRoutes,
+              res.result,
+              false
+            );
+            accessRoutes.forEach((element) => router.addRoute(element));
+
+            saveRoutes(res.result);
             resolve();
           })
-          .catch((error) => {
-            reject(error);
+          .catch((err) => {
+            reject(err);
           });
-      });
-    },
-    generateRoutes() {
-      return new Promise<void>((resolve, reject) => {
-        if (state.routes) return resolve();
+      }
+    });
+  }
 
-        const routes = getRoutes();
-        if (routes) {
-          // 读取缓存获取路由
-          const accessRoutes = getConfigRoutes(asyncRoutes, routes, false);
-          accessRoutes.forEach((element) => router.addRoute(element));
-
-          resolve();
-        } else {
-          // 读取接口获取路由
-          getMenuNav()
-            .then((res: any) => {
-              // console.log(res);
-              const accessRoutes = getConfigRoutes(
-                asyncRoutes,
-                res.result,
-                false
-              );
-              accessRoutes.forEach((element) => router.addRoute(element));
-
-              saveRoutes(res.result);
-              resolve();
-            })
-            .catch((err) => {
-              reject(err);
-            });
-        }
-      });
-    },
-  },
+  return { token, login, generateRoutes };
 });
 
 export default useUserStore;

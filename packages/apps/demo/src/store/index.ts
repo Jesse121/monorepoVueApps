@@ -1,4 +1,4 @@
-import useAppStore from "@vueapps/store";
+import useAppStore from "./modules/app";
 import useUserStore from "./modules/user";
 
 // const modules = import.meta.glob("./modules/*.ts", {

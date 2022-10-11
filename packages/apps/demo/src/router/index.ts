@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 // import home from "./modules/home";
 
-import { Layout, ErrorPage } from "@vueapps/components";
+import { Layout, ErrorPage, NormalLogin } from "@vueapps/components";
 /**
   ConstantRoutes
   a base page that does not have permission requirements
@@ -22,14 +22,14 @@ export const constantRoutes: RouteRecordRaw[] = [
   //     },
   //   ],
   // },
-  // {
-  //   path: "/login",
-  //   component: () => import("@/views/login/index.vue"),
-  //   meta: {
-  //     title: "登录",
-  //     hidden: true,
-  //   },
-  // },
+  {
+    path: "/login",
+    component: NormalLogin,
+    meta: {
+      title: "登录",
+      hidden: true,
+    },
+  },
   {
     path: "/404",
     component: ErrorPage,

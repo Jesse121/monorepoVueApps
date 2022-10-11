@@ -1,7 +1,7 @@
 <template>
   <div :class="{ 'has-logo': true }">
     <Logo :collapse="isCollapse" />
-    <!-- <el-scrollbar wrap-class="scrollbar-wrapper">
+    <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
@@ -19,7 +19,7 @@
           :base-path="route.path"
         />
       </el-menu>
-    </el-scrollbar> -->
+    </el-scrollbar>
   </div>
 </template>
 

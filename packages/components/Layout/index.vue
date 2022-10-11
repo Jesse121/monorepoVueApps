@@ -12,16 +12,18 @@
 </template>
 
 <script setup lang="ts" name="layout">
-import { computed, onMounted, reactive, ref, ToRefs } from "vue";
-import useAppStore from "@vueapps/store";
+import { computed } from "vue";
 
 // import AppMain from "./AppMain";
 import Navbar from "./Navbar/index.vue";
 import Sidebar from "./Sidebar/index.vue";
-import { storeToRefs } from "pinia";
+import { getActivePinia, storeToRefs } from "pinia";
 // import TagsView from "./TagsView/index.vue";
-const appStore = useAppStore();
+
+const activePinia = getActivePinia() as any;
+const appStore = activePinia._s.get("app");
 const { sidebar } = storeToRefs(appStore);
+
 const classObj = computed(() => ({
   hideSidebar: !sidebar.value.opened,
   openSidebar: sidebar.value.opened,
@@ -76,12 +78,6 @@ const classObj = computed(() => ({
 
   .is-horizontal {
     display: none;
-  }
-
-  a {
-    display: inline-block;
-    overflow: hidden;
-    width: 100%;
   }
 
   .svg-icon {

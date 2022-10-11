@@ -9,8 +9,7 @@ const useAppStore = defineStore("app", () => {
       : true,
     withoutAnimation: false,
   });
-
-  const toggleSideBar = () => {
+  function toggleSideBar() {
     sidebar.opened = !sidebar.opened;
     sidebar.withoutAnimation = false;
     if (sidebar.opened) {
@@ -18,7 +17,7 @@ const useAppStore = defineStore("app", () => {
     } else {
       localStorage.setItem("sidebarStatus", "0");
     }
-  };
+  }
 
   return { sidebar, toggleSideBar };
 });
