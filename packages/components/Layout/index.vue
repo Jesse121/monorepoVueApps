@@ -1,10 +1,9 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <Sidebar class="sidebar-container" :is-collapse="!opened" />
+    <Sidebar class="sidebar-container" :is-collapse="!sidebar.opened" />
     <div class="main-container">
       <div class="fixed-header">
         <Navbar />
-        <!-- <Breadcrumb class="breadcrumb-container" /> -->
         <!-- <tags-view /> -->
       </div>
       <!-- <app-main /> -->
@@ -13,28 +12,25 @@
 </template>
 
 <script setup lang="ts" name="layout">
-import { getActivePinia, storeToRefs } from "pinia";
 import { computed, onMounted, reactive, ref, ToRefs } from "vue";
+import useAppStore from "@vueapps/store";
 
 // import AppMain from "./AppMain";
-// import Breadcrumb from "./Breadcrumb/index.vue";
 import Navbar from "./Navbar/index.vue";
 import Sidebar from "./Sidebar/index.vue";
+import { storeToRefs } from "pinia";
 // import TagsView from "./TagsView/index.vue";
-const activePinia = reactive(getActivePinia() as any);
-const appStore = activePinia._s.get("app");
-const opened = ref(appStore.sidebar.opened);
-const { withoutAnimation } = appStore.sidebar;
-const classObj = computed(() => {
-  hideSidebar: !opened;
-  openSidebar: opened;
-  withoutAnimation: withoutAnimation;
-});
+const appStore = useAppStore();
+const { sidebar } = storeToRefs(appStore);
+const classObj = computed(() => ({
+  hideSidebar: !sidebar.value.opened,
+  openSidebar: sidebar.value.opened,
+  withoutAnimation: sidebar.value.withoutAnimation,
+}));
 </script>
 
 <style lang="less" scoped>
 .app-wrapper {
-  .clearfix();
   position: relative;
   width: 100%;
   height: 100%;
@@ -47,7 +43,7 @@ const classObj = computed(() => {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  width: @sideBarWidth !important;
+  width: @sideBarWidth;
   height: 100%;
   background-color: @sidebarBg;
   font-size: 0px;
@@ -172,6 +168,77 @@ const classObj = computed(() => {
     background: @menuHover !important;
     color: @menuActiveText;
   }
+}
+
+.hideSidebar {
+  .sidebar-container {
+    width: 64px;
+  }
+
+  .main-container {
+    margin-left: 64px;
+  }
+
+  .submenu-title-noDropdown {
+    position: relative;
+    padding: 0 !important;
+
+    .el-tooltip {
+      padding: 0 !important;
+
+      .svg-icon {
+        margin-left: 20px;
+      }
+
+      .sub-el-icon {
+        margin-left: 19px;
+      }
+    }
+  }
+
+  .el-submenu {
+    overflow: hidden;
+
+    & > .el-submenu__title {
+      padding: 0 !important;
+
+      .svg-icon {
+        margin-left: 20px;
+      }
+
+      .sub-el-icon {
+        margin-left: 19px;
+      }
+
+      .el-submenu__icon-arrow {
+        display: none;
+      }
+    }
+  }
+
+  .el-menu--collapse {
+    .el-submenu {
+      & > .el-submenu__title {
+        & > span {
+          display: inline-block;
+          overflow: hidden;
+          width: 0;
+          height: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+.main-container {
+  position: relative;
+  height: 100%;
+  margin-left: @sideBarWidth;
+  background-color: @mainContainerBg;
+  overflow-x: hidden;
+  overflow-y: overlay;
+  transition: margin-left 0.28s;
 }
 
 .drawer-bg {

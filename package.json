@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "demo:dev": "pnpm --filter=@vueapps/demo run dev",
-    "demo:build": "pnpm --filter=@vueapps/demo run build"
+    "demo:dev": "pnpm -F @vueapps/demo run dev",
+    "demo:build": "pnpm -F @vueapps/demo run build"
   },
   "keywords": [],
   "author": "",

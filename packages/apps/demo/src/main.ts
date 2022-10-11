@@ -14,6 +14,6 @@ app.component("SvgIcon", SvgIcon);
 app.use(router);
 app.use(pinia);
 // 提前注册pinia状态管理库,方便其他模块直接调用
-registerStore();
+// registerStore();
 // console.log(getActivePinia());
 app.mount("#app");
