@@ -47,9 +47,14 @@ const { showLogo, title } = settings;
   // background: $sidebarBg;
   overflow: hidden;
   line-height: 65px;
-  &.collapse {
-    text-align: center;
-  }
+  // &.collapse {
+  //   text-align: center;
+  // .sidebar-logo {
+  //     margin-right: 0px;
+  //     margin-left: 0;
+  //     // vertical-align: middle;
+  //   }
+  // }
 
   & .sidebar-logo-link {
     display: inline-block;
@@ -73,14 +78,6 @@ const { showLogo, title } = settings;
       font-size: 18px;
       font-weight: 600;
       vertical-align: middle;
-    }
-  }
-
-  &.collapse {
-    .sidebar-logo {
-      margin-right: 0px;
-      margin-left: 0;
-      // vertical-align: middle;
     }
   }
 }

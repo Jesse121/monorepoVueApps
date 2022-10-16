@@ -12,7 +12,7 @@
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <div class="nickname">{{ name }}</div>
-          <el-icon><CaretBottom /></el-icon>
+          <el-icon class="el-icon-caret-bottom"><CaretBottom /></el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">

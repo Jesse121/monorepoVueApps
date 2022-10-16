@@ -31,7 +31,7 @@ const classObj = computed(() => ({
 }));
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .app-wrapper {
   position: relative;
   width: 100%;
@@ -81,11 +81,11 @@ const classObj = computed(() => ({
   }
 
   .svg-icon {
-    width: 20px;
-    height: 20px;
+    width: 20px !important;
+    height: 20px !important;
     margin-right: 10px;
     color: @menuText;
-    vertical-align: -4px;
+    vertical-align: -4px !important;
   }
 
   .sub-el-icon {
