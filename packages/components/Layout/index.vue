@@ -6,7 +6,7 @@
         <Navbar />
         <!-- <tags-view /> -->
       </div>
-      <!-- <app-main /> -->
+      <app-main />
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 <script setup lang="ts" name="layout">
 import { computed } from "vue";
 
-// import AppMain from "./AppMain";
+import AppMain from "./AppMain";
 import Navbar from "./Navbar/index.vue";
 import Sidebar from "./Sidebar/index.vue";
 import { getActivePinia, storeToRefs } from "pinia";

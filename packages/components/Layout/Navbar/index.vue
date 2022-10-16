@@ -8,19 +8,16 @@
 
     <Breadcrumb class="breadcrumb-container" />
 
-    <!-- <div class="right-menu">
+    <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <div class="nickname">{{ name }}</div>
-          <i class="el-icon-caret-bottom" />
+          <el-icon><CaretBottom /></el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
-            <el-dropdown-item v-if="isDev" @click="$router.push('/dev')">
-              <span>开发路由</span>
-            </el-dropdown-item>
-            <el-dropdown-item v-if="role !== 'student'">
-              <router-link to="/setup">个人设置</router-link>
+            <el-dropdown-item v-if="isDev">
+              <router-link to="/dev">开发路由</router-link>
             </el-dropdown-item>
             <el-dropdown-item>
               <router-link to="/password">修改密码</router-link>
@@ -31,7 +28,7 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -39,7 +36,8 @@
 import Breadcrumb from "../Breadcrumb/index.vue";
 import Hamburger from "../Hamburger/index.vue";
 import { getActivePinia, storeToRefs } from "pinia";
-// const isDev = import.meta.env.VITE_NODE_ENV;
+import { CaretBottom } from "@element-plus/icons-vue";
+const isDev = import.meta.env.VITE_NODE_ENV;
 
 const activePinia = getActivePinia() as any;
 const appStore = activePinia._s.get("app");
@@ -48,13 +46,14 @@ const useStore = activePinia._s.get("user");
 // console.log(useStore);
 
 const { sidebar } = storeToRefs(appStore);
+const { name } = storeToRefs(useStore);
 
 const toggleSideBar = () => {
   appStore.toggleSideBar();
 };
-// const logout = async () => {
-//   await store.dispatch("user/logout");
-// };
+const logout = async () => {
+  await useStore.logout();
+};
 </script>
 
 <style lang="less" scoped>

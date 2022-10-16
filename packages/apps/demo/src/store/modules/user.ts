@@ -7,6 +7,8 @@ import {
   saveName,
   getRoutes,
   saveRoutes,
+  removeToken,
+  getName,
 } from "@vueapps/utils";
 
 import setting from "@/setting";
@@ -52,6 +54,7 @@ export function getConfigRoutes(
 
 const useUserStore = defineStore("user", () => {
   const token = computed(() => getToken(TokenKey) || "");
+  const name = computed(() => getName(NAME) || "admin");
 
   /**
    *
@@ -62,7 +65,7 @@ const useUserStore = defineStore("user", () => {
     const username = userInfo.username.trim();
     const password = userInfo.password;
     return new Promise<void>((resolve, reject) => {
-      login({
+      loginApi({
         username,
         password,
       })
@@ -110,8 +113,23 @@ const useUserStore = defineStore("user", () => {
       }
     });
   }
+  function logout() {
+    return new Promise<void>((resolve, reject) => {
+      logoutApi({ token: getToken(TokenKey) })
+        .then(() => {
+          removeToken(TokenKey); // must remove  token  first
+          // 退出后默认进首页
+          router.push("/");
+          // resetRouter();
+          resolve();
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
 
-  return { token, login, generateRoutes };
+  return { token, name, login, logout, generateRoutes };
 });
 
 export default useUserStore;

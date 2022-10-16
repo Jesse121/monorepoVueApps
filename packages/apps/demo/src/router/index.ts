@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
-// import home from "./modules/home";
+import home from "./modules/home";
 
 import { Layout, ErrorPage, NormalLogin } from "@vueapps/components";
 /**
@@ -41,11 +41,12 @@ export const constantRoutes: RouteRecordRaw[] = [
   {
     path: "/",
     component: Layout,
-    // redirect: "/home/index",
+    redirect: "/home/index",
     meta: {
       title: "首页",
       hidden: true,
     },
+    children: [],
   },
   {
     path: "/:pathMatch(.*)*",
@@ -58,7 +59,7 @@ export const constantRoutes: RouteRecordRaw[] = [
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
  */
-export const asyncRoutes: Array<RouteRecordRaw> = [];
+export const asyncRoutes: Array<RouteRecordRaw> = [home];
 
 // 开发路由 - 仅本地开发环境可用
 let devRoutes: RouteRecordRaw[] = [];
