@@ -61,6 +61,7 @@ const { showLogo, title } = settings;
     overflow: hidden;
     width: 100%;
     height: 100%;
+    white-space: nowrap;
 
     & .sidebar-logo {
       width: 48px;

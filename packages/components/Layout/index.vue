@@ -4,9 +4,9 @@
     <div class="main-container">
       <div class="fixed-header">
         <Navbar />
-        <!-- <tags-view /> -->
+        <!-- <TagsView /> -->
       </div>
-      <app-main />
+      <AppMain />
     </div>
   </div>
 </template>
@@ -20,8 +20,8 @@ import Sidebar from "./Sidebar/index.vue";
 import { getActivePinia, storeToRefs } from "pinia";
 // import TagsView from "./TagsView/index.vue";
 
-const activePinia = getActivePinia() as any;
-const appStore = activePinia._s.get("app");
+const activePinia = getActivePinia();
+const appStore = activePinia?._s.get("app");
 const { sidebar } = storeToRefs(appStore);
 
 const classObj = computed(() => ({
@@ -118,6 +118,7 @@ const classObj = computed(() => ({
   .el-menu-item {
     height: 51px;
     font-size: 16px;
+    display: block !important;
     .svg-icon {
       color: @menuText;
       transition: all ease 0.3s;
@@ -178,8 +179,8 @@ const classObj = computed(() => ({
   .submenu-title-noDropdown {
     position: relative;
     padding: 0 !important;
-
-    .el-tooltip {
+    .el-tooltip__trigger {
+      display: inline-block !important;
       padding: 0 !important;
 
       .svg-icon {

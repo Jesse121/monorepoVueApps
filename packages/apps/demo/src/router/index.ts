@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import home from "./modules/home";
+import test from "./modules/test";
 
 import { Layout, ErrorPage, NormalLogin } from "@vueapps/components";
 /**
@@ -59,7 +60,7 @@ export const constantRoutes: RouteRecordRaw[] = [
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
  */
-export const asyncRoutes: Array<RouteRecordRaw> = [home];
+export const asyncRoutes: Array<RouteRecordRaw> = [home, test];
 
 // 开发路由 - 仅本地开发环境可用
 let devRoutes: RouteRecordRaw[] = [];
