@@ -57,7 +57,8 @@ const { showLogo, title } = settings;
   // }
 
   & .sidebar-logo-link {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     overflow: hidden;
     width: 100%;
     height: 100%;
