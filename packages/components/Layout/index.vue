@@ -4,7 +4,7 @@
     <div class="main-container">
       <div class="fixed-header">
         <Navbar />
-        <!-- <TagsView /> -->
+        <Breadcrumb class="breadcrumb-container" />
       </div>
       <AppMain />
     </div>
@@ -13,12 +13,11 @@
 
 <script setup lang="ts" name="layout">
 import { computed } from "vue";
-
+import Breadcrumb from "./Breadcrumb/index.vue";
 import AppMain from "./AppMain";
 import Navbar from "./Navbar/index.vue";
 import Sidebar from "./Sidebar/index.vue";
 import { getActivePinia, storeToRefs } from "pinia";
-// import TagsView from "./TagsView/index.vue";
 
 const activePinia = getActivePinia();
 const appStore = activePinia?._s.get("app");

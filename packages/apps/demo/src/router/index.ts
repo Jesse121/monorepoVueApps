@@ -10,19 +10,6 @@ import { Layout, ErrorPage, NormalLogin } from "@vueapps/components";
   all roles can be accessed
 */
 export const constantRoutes: RouteRecordRaw[] = [
-  // {
-  //   path: "/redirect", //用于tagsView中刷新
-  //   component: Layout,
-  //   meta: {
-  //     hidden: true,
-  //   },
-  //   children: [
-  //     {
-  //       path: "/redirect/:path(.*)",
-  //       component: () => import("@/views/redirect/index.vue"),
-  //     },
-  //   ],
-  // },
   {
     path: "/login",
     component: NormalLogin,

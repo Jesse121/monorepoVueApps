@@ -1,6 +1,7 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
+      <span class="current-position">当前位置：</span>
       <el-breadcrumb-item v-for="item in levelList" :key="item.path">
         <span>{{ item.meta.title }} </span>
         <!-- <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">{{
@@ -46,7 +47,12 @@ getBreadcrumb();
 .app-breadcrumb.el-breadcrumb {
   display: inline-block;
   font-size: 14px;
-  line-height: 56px;
+  line-height: 40px;
+  margin-left: 24px;
+
+  .current-position {
+    float: left;
+  }
 
   a {
     color: #666;

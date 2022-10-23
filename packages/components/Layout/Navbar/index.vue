@@ -6,8 +6,6 @@
       @toggleClick="toggleSideBar"
     />
 
-    <Breadcrumb class="breadcrumb-container" />
-
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -33,7 +31,6 @@
 </template>
 
 <script setup lang="ts" name="navbar">
-import Breadcrumb from "../Breadcrumb/index.vue";
 import Hamburger from "../Hamburger/index.vue";
 import { getActivePinia, storeToRefs } from "pinia";
 import { CaretBottom } from "@element-plus/icons-vue";
