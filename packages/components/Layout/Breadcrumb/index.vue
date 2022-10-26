@@ -1,15 +1,13 @@
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
-    <transition-group name="breadcrumb">
-      <span class="current-position">当前位置：</span>
-      <el-breadcrumb-item v-for="item in levelList" :key="item.path">
-        <span>{{ item.meta.title }} </span>
-        <!-- <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">{{
+    <span class="current-position">当前位置：</span>
+    <el-breadcrumb-item v-for="item in levelList" :key="item.path">
+      <span>{{ item.meta.title }} </span>
+      <!-- <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">{{
 					item.meta.title
 				}}</span>
 				<a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a> -->
-      </el-breadcrumb-item>
-    </transition-group>
+    </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
