@@ -1,8 +1,8 @@
-const modules = import.meta.glob("./modules/*.ts", {
+const modules: Record<string, Function> = import.meta.glob("./modules/*.ts", {
   import: "default",
   eager: true,
 });
-const appStore: any = {};
+const appStore: Record<string, string> = {};
 
 export const registerStore = () => {
   for (const key in modules) {
