@@ -8,8 +8,8 @@
 
 <!-- more -->
 
-考虑到我们的不同项目在业务和组件交互上存在很多相似性，可以考虑在不同项目中使用公共组件库和公共依赖库。采用 monorepo 风格管理项目就比较合适了。
-monorepo 可以让多个模块共享同一个仓库，因此他们可以共享同一套构建流程、代码规范也可以做到统一，特别是如果存在模块间的相互依赖的情况，查看代码、修改 bug、调试等会更加方便。
+考虑到我们的不同项目在业务和组件交互上存在很多相似性，可以考虑在不同项目中使用公共组件库和公共依赖库。目前现有的模块复用 采用 monorepo 风格管理项目就比较合适了。
+monorepo 可以让多个模块共享同一个仓库，因此他们可以共享同一套构建流程、代码规范也可以做到统一，特别是如果存在模块间有共享公共组件的情况，查看代码、修改 bug、调试等会更加方便。
 
 市场上搭建 monorepo 项目常用的有两种方案
 
@@ -67,7 +67,7 @@ pnpm init -y
 
 ```sh
 pnpm add vue vue-router pinia axios element-plus @element-plus/icons-vue @vueuse/core  -w
-pnpm add typescript vite @vitejs/plugin-vue @vitejs/plugin-vue-jsx vue-tsc less -wD
+pnpm add typescript vite @vitejs/plugin-vue @vitejs/plugin-vue-jsx vue-tsc less vite-plugin-vue-setup-extend-plus -wD
 ```
 
 ### 创建 vue3 项目 demo

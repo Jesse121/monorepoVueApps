@@ -1,12 +1,13 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
-import VueSetupExtend from "vite-plugin-vue-setup-extend";
+import vueSetupExtend from "vite-plugin-vue-setup-extend-plus";
 import path from "path";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { readdirSync, readFileSync } from "fs";
+
 const resolve = (dir: string) => path.join(__dirname, dir);
 let idPrefix = "";
 const svgTitle = /<svg([^>+].*?)>/;
@@ -17,7 +18,7 @@ const hasViewBox = /(viewBox="[^>+].*?")/g;
 const clearReturn = /(\r)|(\n)/g;
 
 function findSvgFile(dir: string): Array<string> {
-  const svgRes = [];
+  const svgRes: string[] = [];
   const directs = readdirSync(dir, {
     withFileTypes: true,
   });
@@ -80,8 +81,8 @@ function svgBuilder(path: string, prefix = "icon") {
 export default defineConfig({
   plugins: [
     vue(),
-    VueSetupExtend(),
     vueJsx(),
+    vueSetupExtend["default"](),
     [svgBuilder("./src/assets/icons/")],
     AutoImport({
       imports: ["vue"],
