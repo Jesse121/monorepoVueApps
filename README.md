@@ -53,7 +53,7 @@ npm i pnpm -g
 
 #### 生成 package.json
 
-在 packages 文件夹下的每个文件夹中分别执行
+分别在 components,hooks,utils 文件夹下执行
 
 ```sh
 pnpm init -y
@@ -63,7 +63,7 @@ pnpm init -y
 
 #### 安装公共依赖
 
-这里将相关开发工具和公共库安装至项目顶层，在更目录下执行
+这里将相关开发工具和公共库安装至项目顶层，在根目录下执行
 
 ```sh
 pnpm add vue vue-router pinia axios element-plus @element-plus/icons-vue @vueuse/core  -w
@@ -77,11 +77,11 @@ cd packages/apps
 pnpm create vite demo -- --template vue-ts
 ```
 
-生成 demo 项目后修改包名和依赖包
+生成 demo 项目后修改依赖包
 
 ```json
 {
-  "name": "@vueapps/demo",
+  "name": "demo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -157,10 +157,6 @@ import "vue-global-api";
 **注意** 如果项目中使用了 eslint，直接在文件中使用 vue 的 api 会提示报错  
 解决办法：
 
-```sh
-yarn add vue-global-api  -D
-```
-
 ```js
 // eslintrc.js
 module.exports = {
@@ -174,9 +170,42 @@ module.exports = {
 
 ### 添加公共布局组件
 
-```sh
-pnpm add @vueapps/utils --filter @vueapps/demo
+### 添加公共函数库 utils
+
+在 utils 文件夹下新建 sync.ts
+
+```ts
+export async function sync<T>(p: Promise<T>): Promise<[unknown | null, T?]> {
+  try {
+    const d = await p;
+    return [null, d];
+  } catch (err) {
+    return [err];
+  }
+}
 ```
+
+新建 index.ts
+
+```ts
+export { sync } from "./sync";
+```
+
+修改该项目的 package.json 文件中的 main
+
+```json
+"main": "index.ts",
+```
+
+至此已经在 utils 工具函数库中增加 sync 方法，其他 demo 项目中调用时需要先安装
+
+```sh
+pnpm add @vueapps/utils -F @vueapps/demo
+```
+
+### 添加 eslint+prettier+commitLint+styleLint 统一代码规则校验
+
+### 快速新建项目及打包部署
 
 参考文章：
 

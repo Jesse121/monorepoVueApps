@@ -9,8 +9,10 @@ import locale from "element-plus/lib/locale/lang/zh-cn";
 import settings from "@/setting";
 import logo from "@/assets/logo.png";
 import styleVariables from "@/styles/variables.less";
+import { getAge } from "@vueapps/utils";
 
 provide("logo", logo);
 provide("settings", settings);
 provide("styleVariables", styleVariables);
+console.log(getAge());
 </script>
