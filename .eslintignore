@@ -1,0 +1,6 @@
+.git/**
+.husky/**
+.vscode/**
+dist/**
+node_modules/**
+*.d.ts
