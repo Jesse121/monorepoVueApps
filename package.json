@@ -1,9 +1,10 @@
 {
   "name": "monorepovueapps",
   "version": "1.0.0",
-  "description": "",
+  "description": "the monorepo project about vue3",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
     "demo:dev": "pnpm -F @vueapps/demo run dev",
     "demo:build": "pnpm -F @vueapps/demo run build",
@@ -11,11 +12,13 @@
     "app1:build": "pnpm -F @vueapps/app1 run build",
     "app1:preview": "pnpm -F @vueapps/app1 run preview",
     "app2:dev": "pnpm -F @vueapps/app2 run dev",
-    "app2:build": "pnpm -F @vueapps/app2 run build",
-    "prepare": "husky install"
+    "app2:build": "pnpm -F @vueapps/app2 run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "monorepo",
+    "vue3"
+  ],
+  "author": "Jesse",
   "license": "ISC",
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
