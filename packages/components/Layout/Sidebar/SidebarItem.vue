@@ -7,7 +7,7 @@
         !item.meta?.alwaysShow
       "
     >
-      <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
+      <AppLink v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item
           :index="resolvePath(onlyOneChild.path)"
           :class="{ 'submenu-title-noDropdown': !isNest }"
@@ -20,7 +20,7 @@
             {{ onlyOneChild.meta.title }}
           </template>
         </el-menu-item>
-      </app-link>
+      </AppLink>
     </template>
 
     <el-sub-menu
@@ -30,13 +30,13 @@
       popper-append-to-body
     >
       <template #title>
-        <item
+        <Item
           v-if="item.meta"
           :icon="item.meta && item.meta.icon"
           :title="item.meta.title"
         />
       </template>
-      <sidebar-item
+      <SidebarItem
         v-for="child in item.children"
         :key="child.path"
         :is-nest="true"
@@ -73,7 +73,15 @@ const props = defineProps({
   },
 });
 
-const onlyOneChild = reactive({});
+const onlyOneChild = reactive({
+  meta: {
+    icon: "",
+    title: "",
+  },
+  path: "",
+  children: [],
+  noShowingChildren: false,
+});
 
 const hasOneShowingChild = (children = [], parent) => {
   const showingChildren = children.filter((item) => {

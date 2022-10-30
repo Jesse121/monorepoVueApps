@@ -1,0 +1,15 @@
+{
+  "name": "@vueapps/demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vueapps/components": "workspace:^1.0.0",
+    "@vueapps/utils": "workspace:^1.0.0"
+  }
+}

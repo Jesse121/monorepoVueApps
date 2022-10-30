@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { getAge } from "@vueapps/utils";
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from "./components/HelloWorld.vue";
-console.log(getAge());
+import { getAge } from "@vueapps/utils";
+import Button from "@vueapps/components/Button";
+const age = getAge();
+console.log(age);
 </script>
 
 <template>
@@ -15,6 +17,7 @@ console.log(getAge());
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
+  <Button>这是共享的按钮组件</Button>
   <HelloWorld msg="Vite + Vue" />
 </template>
 
