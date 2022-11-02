@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Button from "@vueapps/components/Button";
+import Button from "@vueapps/components/Button.vue";
 import { getAge } from "@vueapps/utils/getAge";
 
 import HelloWorld from "./components/HelloWorld.vue";
