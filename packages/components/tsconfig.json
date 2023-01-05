@@ -1,5 +1,6 @@
 {
-  "compilerOptions": {
-    "paths": {}
-  }
+	"compilerOptions": {
+		"paths": {},
+		"jsx": "react"
+	}
 }
