@@ -63,12 +63,10 @@ const onlyOneChild = reactive({
 		title: ""
 	},
 	path: "",
-	children: [],
 	noShowingChildren: false
 });
 
 const hasOneShowingChild = (children = [], parent) => {
-	debugger;
 	const showingChildren = children.filter(item => {
 		if (item.meta.hidden) {
 			return false;

@@ -1,10 +1,12 @@
 import "./item.less";
 
+import { PropType } from "vue";
+
 export default {
 	name: "MenuItem",
 	props: {
 		icon: {
-			type: String,
+			type: String as PropType<String>,
 			default: ""
 		},
 		title: {

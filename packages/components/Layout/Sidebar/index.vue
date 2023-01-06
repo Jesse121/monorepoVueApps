@@ -45,6 +45,7 @@ const styleVariables = inject("styleVariables", {
 // });
 
 const routes = computed(() => router.options.routes);
+console.log(routes.value);
 
 const props = withDefaults(
 	defineProps<{

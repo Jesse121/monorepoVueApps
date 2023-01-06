@@ -25,17 +25,17 @@ export const constantRoutes: RouteRecordRaw[] = [
 			hidden: true
 		}
 	},
-	// {
-	// 	path: "/",
-	// 	component: Layout,
-	// 	redirect: "/home/index",
-	// 	meta: {
-	// 		title: "首页",
+	{
+		path: "/",
+		component: Layout,
+		redirect: "/home/index",
+		meta: {
+			title: "首页",
 
-	// 		hidden: true
-	// 	},
-	// 	children: []
-	// },
+			hidden: true
+		},
+		children: []
+	},
 	{
 		path: "/:pathMatch(.*)*",
 		redirect: "/404",
