@@ -7,7 +7,8 @@ importers:
       '@commitlint/cli': 17.0.3
       '@commitlint/config-conventional': 17.0.3
       '@element-plus/icons-vue': 2.0.9
-      '@types/node': ^18.8.3
+      '@types/node': 18.8.0
+      '@types/path-browserify': 1.0.0
       '@types/qs': ^6.9.7
       '@typescript-eslint/eslint-plugin': 5.30.7
       '@typescript-eslint/parser': 5.30.7
@@ -57,7 +58,8 @@ importers:
     devDependencies:
       '@commitlint/cli': 17.0.3
       '@commitlint/config-conventional': 17.0.3
-      '@types/node': 18.8.3
+      '@types/node': 18.8.0
+      '@types/path-browserify': 1.0.0
       '@types/qs': 6.9.7
       '@typescript-eslint/eslint-plugin': 5.30.7_vypjzpdc4ipz2qsymmtx32vhhm
       '@typescript-eslint/parser': 5.30.7_3rubbgt5ekhqrcgx4uwls3neim
@@ -843,7 +845,11 @@ packages:
     dev: true
 
   /@types/node/14.18.33:
-    resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==, registry: http://registry.npm.taobao.org/, tarball: http://registry.npm.taobao.org/@types/node/-/node-14.18.33.tgz}
+    resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
+    dev: true
+
+  /@types/node/18.8.0:
+    resolution: {integrity: sha512-u+h43R6U8xXDt2vzUaVP3VwjjLyOJk6uEciZS8OSyziUQGOwmk+l+4drxcsDboHXwyTaqS1INebghmWMRxq3LA==}
     dev: true
 
   /@types/node/18.8.3:
@@ -856,6 +862,10 @@ packages:
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==, registry: http://registry.npm.taobao.org/, tarball: http://registry.npm.taobao.org/@types/parse-json/-/parse-json-4.0.0.tgz}
+    dev: true
+
+  /@types/path-browserify/1.0.0:
+    resolution: {integrity: sha512-XMCcyhSvxcch8b7rZAtFAaierBYdeHXVvg2iYnxOV0MCQHmPuRRmGZPFDRzPayxcGiiSL1Te9UIO+f3cuj0tfw==}
     dev: true
 
   /@types/qs/6.9.7:

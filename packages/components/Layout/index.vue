@@ -20,7 +20,7 @@ import Breadcrumb from "./Breadcrumb/index.vue";
 import Navbar from "./Navbar/index.vue";
 import Sidebar from "./Sidebar/index.vue";
 
-const activePinia = getActivePinia();
+const activePinia = getActivePinia() as any;
 const appStore = activePinia?._s.get("app");
 const { sidebar } = storeToRefs(appStore);
 

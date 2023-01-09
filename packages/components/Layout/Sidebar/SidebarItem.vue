@@ -3,7 +3,7 @@
 		<template
 			v-if="
 				hasOneShowingChild(item.children, item) &&
-				(!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
+				(!onlyOneChild.children.length || onlyOneChild.noShowingChildren) &&
 				!item.meta?.alwaysShow
 			"
 		>
@@ -63,11 +63,12 @@ const onlyOneChild = reactive({
 		title: ""
 	},
 	path: "",
+	children: [],
 	noShowingChildren: false
 });
 
-const hasOneShowingChild = (children = [], parent) => {
-	const showingChildren = children.filter(item => {
+const hasOneShowingChild = (children = [], parent: any) => {
+	const showingChildren = children.filter((item: any) => {
 		if (item.meta.hidden) {
 			return false;
 		} else {
@@ -93,7 +94,7 @@ const hasOneShowingChild = (children = [], parent) => {
 	}
 	return false;
 };
-const resolvePath = routePath => {
+const resolvePath = (routePath: string) => {
 	if (isExternal(routePath)) {
 		return routePath;
 	}

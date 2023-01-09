@@ -1,11 +1,13 @@
 import "@/styles/index.less";
 import "normalize.css/normalize.css";
-import { SvgIcon } from "@vueapps/components";
 import "vue-global-api";
+
+import { SvgIcon } from "@vueapps/components";
+import { createPinia } from "pinia";
 import { createApp } from "vue";
+
 import App from "./App.vue";
 import router from "./router";
-import { createPinia } from "pinia";
 import { registerStore } from "./store";
 
 const app = createApp(App);

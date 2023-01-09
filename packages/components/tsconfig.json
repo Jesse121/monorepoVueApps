@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
 		"paths": {},
-		"jsx": "react"
+		"jsx": "preserve"
 	}
 }

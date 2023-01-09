@@ -1,1 +1,9 @@
-
+{
+	"editor.codeActionsOnSave": {
+    "source.addMissingImports": false,
+    "source.organizeImports": true,
+    "source.fixAll": true
+  },
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+}

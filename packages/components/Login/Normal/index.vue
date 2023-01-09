@@ -60,7 +60,10 @@ import { getActivePinia } from "pinia";
 import { inject, nextTick, reactive, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
+import { SvgIcon } from "../..";
+
 const activePinia = getActivePinia() as any;
+
 const userStore = activePinia._s.get("user");
 
 const settings = inject("settings", {
