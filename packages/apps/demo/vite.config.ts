@@ -73,6 +73,9 @@ function svgBuilder(path: string, prefix = "icon") {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	define: {
+		__VUE_OPTIONS_API__: false // 关闭 Vue2 中的 options选项API 减小包体积
+	},
 	plugins: [
 		vue(),
 		vueJsx(),
