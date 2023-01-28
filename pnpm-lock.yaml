@@ -106,9 +106,11 @@ importers:
   packages/apps/demo:
     specifiers:
       '@vueapps/components': workspace:^1.0.0
+      '@vueapps/directives': workspace:1.0.0
       '@vueapps/utils': workspace:^1.0.0
     dependencies:
       '@vueapps/components': link:../../components
+      '@vueapps/directives': link:../../directives
       '@vueapps/utils': link:../../utils
 
   packages/components:
