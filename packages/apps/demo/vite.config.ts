@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { readdirSync, readFileSync } from "fs";
@@ -116,5 +118,15 @@ export default defineConfig({
 				}
 			}
 		}
+	},
+	test: {
+		// 模拟dom环境
+		environment: "happy-dom",
+		// 支持tsx,jsx
+		transformMode: {
+			web: [/.[tj]sx$/]
+		},
+		// include: ["./src/components/Hello/__test__/index.test.ts"]
+		include: ["./src/components/**/*.{test,spec}.ts"]
 	}
 });
