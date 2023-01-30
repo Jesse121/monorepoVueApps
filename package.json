@@ -8,6 +8,8 @@
     "preinstall": "npx only-allow pnpm",
     "demo:dev": "pnpm -F @vueapps/demo run dev",
     "demo:build": "pnpm -F @vueapps/demo run build",
+    "demo:test": "pnpm -F @vueapps/demo run test",
+    "demo:coverage": "pnpm -F @vueapps/demo run coverage",
     "app1:dev": "pnpm -F @vueapps/app1 run dev",
     "app1:build": "pnpm -F @vueapps/app1 run build",
     "app1:preview": "pnpm -F @vueapps/app1 run preview",
@@ -42,11 +44,15 @@
     "@typescript-eslint/parser": "5.30.7",
     "@vitejs/plugin-vue": "^3.1.0",
     "@vitejs/plugin-vue-jsx": "^2.0.1",
+    "@vitest/coverage-c8": "0.28.3",
+    "@vue/compiler-dom": "3.2.45",
+    "@vue/test-utils": "2.2.8",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-vue": "7.15.1",
+    "happy-dom": "8.2.0",
     "husky": "8.0.0",
     "less": "^4.1.3",
     "lint-staged": "13.0.3",
@@ -61,13 +67,15 @@
     "unplugin-vue-components": "^0.22.7",
     "vite": "^3.1.4",
     "vite-plugin-vue-setup-extend-plus": "^0.1.0",
+    "vitest": "0.28.3",
     "vue-global-api": "^0.4.1",
     "vue-tsc": "^0.40.4"
   },
   "lint-staged": {
     "*.{vue,ts,js}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+			"pnpm run demo:coverage"
     ],
     "*.{vue,less,scss}": [
       "prettier --write",
