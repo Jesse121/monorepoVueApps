@@ -72,10 +72,14 @@
     "vue-tsc": "^0.40.4"
   },
   "lint-staged": {
-    "*.{vue,ts,js}": [
-      "prettier --write",
+		"*.{vue,tsx}":[
+			"prettier --write",
       "eslint --fix",
 			"pnpm run demo:coverage"
+		],
+    "*.{ts,js}": [
+      "prettier --write",
+      "eslint --fix"
     ],
     "*.{vue,less,scss}": [
       "prettier --write",
