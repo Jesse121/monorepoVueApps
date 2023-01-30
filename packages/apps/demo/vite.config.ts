@@ -126,7 +126,12 @@ export default defineConfig({
 		transformMode: {
 			web: [/.[tj]sx$/]
 		},
-		// include: ["./src/components/Hello/__test__/index.test.ts"]
+		coverage: {
+			lines: 75,
+			functions: 75,
+			branches: 75,
+			statements: 75
+		},
 		include: ["./src/components/**/*.{test,spec}.ts"]
 	}
 });
