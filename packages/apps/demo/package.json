@@ -1,7 +1,7 @@
 {
   "name": "@vueapps/demo",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@vueapps/components": "workspace:^1.0.0",
-    "@vueapps/directives": "workspace:1.0.0",
+    "@vueapps/directives": "workspace:^1.0.0",
     "@vueapps/utils": "workspace:^1.0.0"
   }
 }
